@@ -1,3 +1,4 @@
+"use strict";
 var demo = 42
 var do_closure = function(list, param){
   list[0] = list[0] + 1;
@@ -5,4 +6,4 @@ var do_closure = function(list, param){
     console.log('list[0]=' + list[0] + ", param=" + param)
   }
 }
-module.exports = { demo:demo, do_closure:do_closure}
+module.exports = { hugo: demo, do_closure:do_closure}
