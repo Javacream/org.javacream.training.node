@@ -1,4 +1,5 @@
 let db = require ("./database")
+let content = require ("./contentserver")
 
 let appRouter =  (app) => {
     app.get("/service/ping", (req, res) => {
@@ -13,9 +14,14 @@ let appRouter =  (app) => {
       res.status(200).send(books);
     });
     app.get("/service/books/:isbn", async (req, res) => {
-      let books = await db.findBookByIsbn(req.params.isbn)
-      res.status(200).send(books);
+      let isbn = req.params.isbn
+      let book = await db.findBookByIsbn(isbn)
+      res.status(200).send(book);
     });
+    app.get("/service/content/:isbn", (req, res) => {
+      content.handleContentRequest(req, res)
+    });
+
   }
   
   exports.root = appRouter;

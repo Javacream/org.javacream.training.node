@@ -26,16 +26,15 @@ async function findAllBooks(){
       password : 'unilog',
       database : 'nodedb'
     });
-    let [books, fields] = await connection.query(
+    let [result, fields] = await connection.query(
         "SELECT * FROM books")
     await connection.end()
-    return books
+    return result
   }
   catch(err){
     console.log(err)
   }  
 }
-
 async function findBookByIsbn(isbn){
   try{
     let connection = await mysql.createConnection({
@@ -44,15 +43,16 @@ async function findBookByIsbn(isbn){
       password : 'unilog',
       database : 'nodedb'
     });
-    let [books, fields] = await connection.query(
+    let [result, fields] = await connection.query(
         `SELECT * FROM books where isbn='${isbn}'`)
     await connection.end()
-    return books
+    return result
   }
   catch(err){
     console.log(err)
   }  
 }
+
 
 exports.retrieveWelcomeMessage = welcomeMessage
 exports.findAllBooks = findAllBooks
