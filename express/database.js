@@ -18,5 +18,42 @@ async function welcomeMessage(){
     console.log(err)
   }  
 }
+async function findAllBooks(){
+  try{
+    let connection = await mysql.createConnection({
+      host : '127.0.0.1',
+      user : 'root',
+      password : 'unilog',
+      database : 'nodedb'
+    });
+    let [books, fields] = await connection.query(
+        "SELECT * FROM books")
+    await connection.end()
+    return books
+  }
+  catch(err){
+    console.log(err)
+  }  
+}
+
+async function findBookByIsbn(isbn){
+  try{
+    let connection = await mysql.createConnection({
+      host : '127.0.0.1',
+      user : 'root',
+      password : 'unilog',
+      database : 'nodedb'
+    });
+    let [books, fields] = await connection.query(
+        `SELECT * FROM books where isbn='${isbn}'`)
+    await connection.end()
+    return books
+  }
+  catch(err){
+    console.log(err)
+  }  
+}
 
 exports.retrieveWelcomeMessage = welcomeMessage
+exports.findAllBooks = findAllBooks
+exports.findBookByIsbn = findBookByIsbn
