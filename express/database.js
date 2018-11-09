@@ -52,8 +52,61 @@ async function findBookByIsbn(isbn){
     console.log(err)
   }  
 }
+async function updateBookByIsbn(isbn, bookData){
+  try{
+    let connection = await mysql.createConnection({
+      host : '127.0.0.1',
+      user : 'root',
+      password : 'unilog',
+      database : 'nodedb'
+    });
+    await connection.query(
+      `update books set price=${bookData.price} where isbn='${isbn}'`)
+  await connection.end()
+  }
+  catch(err){
+    console.log(err)
+  }  
+}
+async function insertBookByIsbn(isbn, bookData){
+  try{
+    let connection = await mysql.createConnection({
+      host : '127.0.0.1',
+      user : 'root',
+      password : 'unilog',
+      database : 'nodedb'
+    });
+    await connection.query(
+      `insert into books (isbn, title, pages, price) values('${isbn}', '${bookData.title}', ${bookData.pages}, ${bookData.price})`)
+  await connection.end()
+  }
+  catch(err){
+    console.log(err)
+  }  
+}
+
+
+async function deleteBookByIsbn(isbn){
+  try{
+    let connection = await mysql.createConnection({
+      host : '127.0.0.1',
+      user : 'root',
+      password : 'unilog',
+      database : 'nodedb'
+    });
+    await connection.query(
+        `delete FROM books where isbn='${isbn}'`)
+    await connection.end()
+  }
+  catch(err){
+    console.log(err)
+  }  
+}
 
 
 exports.retrieveWelcomeMessage = welcomeMessage
 exports.findAllBooks = findAllBooks
 exports.findBookByIsbn = findBookByIsbn
+exports.deleteBookByIsbn = deleteBookByIsbn
+exports.updateBookByIsbn = updateBookByIsbn
+exports.insertBookByIsbn = insertBookByIsbn

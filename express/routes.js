@@ -13,10 +13,24 @@ let appRouter =  (app) => {
       let books = await db.findAllBooks()
       res.status(200).send(books);
     });
-    app.get("/service/books/:isbn", async (req, res) => {
+    app.route("/service/books/:isbn").get(async (req, res) => {
       let isbn = req.params.isbn
       let book = await db.findBookByIsbn(isbn)
       res.status(200).send(book);
+    }).delete(async (req, res) => {
+      let isbn = req.params.isbn
+      await db.deleteBookByIsbn(isbn)
+      res.status(200).send();
+    }).put(async (req, res) => {
+      let isbn = req.params.isbn
+      let bookData = req.body
+      await db.updateBookByIsbn(isbn, bookData)
+      res.status(200).send();
+    }).post(async (req, res) => {
+      let isbn = req.params.isbn
+      let bookData = req.body
+      await db.insertBookByIsbn(isbn, bookData)
+      res.status(200).send();
     });
     app.get("/service/content/:isbn", (req, res) => {
       content.handleContentRequest(req, res)
