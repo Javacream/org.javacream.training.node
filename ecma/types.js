@@ -18,20 +18,24 @@ let list2 = list //Zuweisung einer Kopie des Wertes der Referenz
 list2[3] = "D"
 console.log(list[3])
 
-let x = {
+let object = {
     isbn: "ISBN1",
     title: "Title1",
-    price:  19.99
+    price:  19.99, 
+    info: function(){
+        return "Book: isbn=" + this.isbn
+    }
 }
 
-//x als Assoziatives Array, Dictionary, Map
-console.log(x["isbn"])
-x["pages"] = 200
-console.log(x["pages"])
+//object als Assoziatives Array, Dictionary, Map
+console.log(object["isbn"])
+object["pages"] = 200
+console.log(object["pages"])
+console.log(object["info"]())
 //x kann auch als Objekt aufgefasst werden
 //Ein Objekt besteht aus Eigenschaften
-console.log(x.title)
-x.keywords = ["sports", "politics"]
-console.log(x.keywords[0])
-
+console.log(object.title)
+object.keywords = ["sports", "politics"]
+console.log(object.keywords[0])
+console.log(object.info())
 
