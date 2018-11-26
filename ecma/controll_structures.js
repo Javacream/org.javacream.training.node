@@ -12,3 +12,9 @@
 //Spezieller: for in-Schleife: Iteriert über die Eigenschaften eines Objekts
 //Wichtig: Nicht über die Elemente eines Arrays!
 //TODO: for in-Schleife über das Buch, siehe types.js
+
+for (let hugo = 0; hugo < 5; hugo++){
+    console.log(hugo)
+}
+
+//console.log(hugo)
