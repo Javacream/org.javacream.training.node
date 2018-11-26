@@ -14,9 +14,15 @@ function demo(){
     console.log(result)
 
     let inverseMap = new Map()
-    let arr2 = Array.from(postalCodes.entries())
+    let arr2 = [...postalCodes]
     arr2.map(function(element){ element[1].forEach(function(e){inverseMap.set(e, element[0])})})
-    console.log(inverseMap)
+    
+    let sortedMap = new Map([...inverseMap].sort())
+    console.log(sortedMap)
+
+    let filteredMap = new Map([...inverseMap].filter(function(e){return (e[0] < 90000 && e[0] > 60000)}))
+    console.log(filteredMap)
+
 }
 
 demo()
