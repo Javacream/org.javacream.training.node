@@ -1,14 +1,8 @@
-function createStringSorter(field, asc){
-    return (o1, o2) => {if (asc) {return o1[field].localeCompare(o2[field])} else{return o2[field].localeCompare(o1[field])} }
-}
+let util = require('../util/utilities')
 
-function createNumberSorter(field, asc){
-    return (o1, o2) => {if (asc) {return o1[field] > o2[field]} else{return o2[field] > o1[field]} }
-}
-
-exports.isbnAscending = createStringSorter("isbn", true)
-exports.isbnDescending = createStringSorter("isbn", false)
-exports.titleAscending = createStringSorter("title", true)
-exports.titleDescending = createStringSorter("title", false)
-exports.priceAscending = createNumberSorter("price", true)
-exports.priceDescending = createNumberSorter("price", false)
+exports.isbnAscending = util.sorter.string("isbn", true)
+exports.isbnDescending = util.sorter.string("isbn", false)
+exports.titleAscending = util.sorter.string("title", true)
+exports.titleDescending = util.sorter.string("title", false)
+exports.priceAscending = util.sorter.number("price", true)
+exports.priceDescending = util.sorter.number("price", false)
