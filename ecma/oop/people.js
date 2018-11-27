@@ -5,7 +5,6 @@ class Address{
         Object.freeze(this)
     }
 }
-Object.freeze(Address.prototype)
 
 class Person{
     constructor(id, lastname, firstname, height, address){
@@ -90,6 +89,7 @@ Object.freeze(Worker.prototype)
 Object.freeze(Student.prototype)
 Object.freeze(Person.prototype)
 Object.freeze(PeopleModel.prototype)
+Object.freeze(Address.prototype)
 
 PeopleModel.counter = 0
 exports.Address = Address
