@@ -11,10 +11,10 @@ server.listen(1337, () => {
 	console.log('server 1 bound')
 })
 let server2 = net.createServer((connection) => {
-	connection.on('dada', function(data) {
+	connection.on('data', function(data) {
 		console.log('a client sent data ' + data)
 		connection.write('goodnight\r\n')
-		sleep(5000)
+		util.sleep(5000)
 		connection.write(data)
 	});
 });
