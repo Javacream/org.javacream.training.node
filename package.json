@@ -1,0 +1,26 @@
+{
+  "name": "org.javacream.training.node",
+  "version": "1.0.0",
+  "description": "node training projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Javacream/org.javacream.training.node.git"
+  },
+  "keywords": [
+    "node",
+    "ecmascript"
+  ],
+  "author": "Dr. Rainer Sawitzki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Javacream/org.javacream.training.node/issues"
+  },
+  "homepage": "https://github.com/Javacream/org.javacream.training.node#readme",
+  "dependencies": {
+    "mysql2": "^1.6.4"
+  }
+}
