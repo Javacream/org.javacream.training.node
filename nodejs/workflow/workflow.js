@@ -49,5 +49,5 @@ async function trainingAsyncAwait(){
 }
 
 //training()
-//trainingPromisified()
-trainingAsyncAwait()
+trainingPromisified()
+//trainingAsyncAwait()
