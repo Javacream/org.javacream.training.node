@@ -24,5 +24,5 @@ app.post("/service/greeter", (req, res) => {
 
 routes.rootsFor(app)
 let server = app.listen(3000, () => {
-    console.log(`server running on port: ${server.address().port}`);
+    console.log(`Server running on port: ${server.address().port}`);
 });  
