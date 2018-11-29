@@ -1,4 +1,6 @@
 let db = require ("./database")
+let content = require ("./contentserver")
+
 let appRouter =  (app) => {
     app.get("/service/welcome", async (req, res) => {
       let message = await db.retrieveWelcomeMessage()
@@ -26,6 +28,9 @@ let appRouter =  (app) => {
       let bookData = req.body
       await db.insertBookByIsbn(isbn, bookData)
       res.status(200).send();
+    });
+    app.get("/service/content/:isbn", (req, res) => {
+      content.handleContentRequest(req, res)
     });
   }
   
