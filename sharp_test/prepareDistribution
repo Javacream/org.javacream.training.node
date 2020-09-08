@@ -1,0 +1,8 @@
+rm -rf distribution
+mkdir -p distribution/sharp/build/Release
+mkdir -p distribution/sharp/vendor/8.10.0/lib
+cp --parents index-linux distribution
+cp -r node_modules/sharp/build/Release distribution/sharp/build
+cp -r node_modules/sharp/vendor/8.10.0/lib distribution/sharp/vendor/8.10.0
+cp site-logo.jpg distribution
+
