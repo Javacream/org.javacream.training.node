@@ -1,14 +1,15 @@
 let mysql = require('mysql2/promise');
-
+let connectionConfig = {
+  host : 'h2908727.stratoserver.net',
+  port: 3406,
+  user : 'training',
+  password : 'training123!',
+  database : 'training'
+}
 
 async function welcomeMessage(){
   try{
-    let connection = await mysql.createConnection({
-      host : '127.0.0.1',
-      user : 'root',
-      password : 'javacream',
-      database : 'javacream'
-    });
+    let connection = await mysql.createConnection(connectionConfig);
     let [result, fields] = await connection.query(
         "SELECT entry FROM CONFIG where id = 'welcome-message'")
     await connection.end()
@@ -20,12 +21,7 @@ async function welcomeMessage(){
 }
 async function findAllBooks(){
   try{
-    let connection = await mysql.createConnection({
-      host : '127.0.0.1',
-      user : 'root',
-      password : 'javacream',
-      database : 'javacream'
-    });
+    let connection = await mysql.createConnection(connectionConfig);
     let [result, fields] = await connection.query(
         "SELECT * FROM BOOKS")
     await connection.end()
@@ -37,12 +33,7 @@ async function findAllBooks(){
 }
 async function findBookByIsbn(isbn){
   try{
-    let connection = await mysql.createConnection({
-      host : '127.0.0.1',
-      user : 'root',
-      password : 'javacream',
-      database : 'javacream'
-    });
+    let connection = await mysql.createConnection(connectionConfig);
     let [result, fields] = await connection.query(
         `SELECT * FROM BOOKS where isbn='${isbn}'`)
     await connection.end()
@@ -54,12 +45,7 @@ async function findBookByIsbn(isbn){
 }
 async function updateBookByIsbn(isbn, bookData){
   try{
-    let connection = await mysql.createConnection({
-      host : '127.0.0.1',
-      user : 'root',
-      password : 'javacream',
-      database : 'javacream'
-    });
+    let connection = await mysql.createConnection(connectionConfig);
     await connection.query(
       `update BOOKS set price=${bookData.price} where isbn='${isbn}'`)
   await connection.end()
@@ -70,12 +56,7 @@ async function updateBookByIsbn(isbn, bookData){
 }
 async function insertBookByIsbn(isbn, bookData){
   try{
-    let connection = await mysql.createConnection({
-      host : '127.0.0.1',
-      user : 'root',
-      password : 'javacream',
-      database : 'javacream'
-    });
+    let connection = await mysql.createConnection(connectionConfig);
     await connection.query(
       `insert into BOOKS (isbn, title, pages, price) values('${isbn}', '${bookData.title}', ${bookData.pages}, ${bookData.price})`)
   await connection.end()
@@ -88,12 +69,7 @@ async function insertBookByIsbn(isbn, bookData){
 
 async function deleteBookByIsbn(isbn){
   try{
-    let connection = await mysql.createConnection({
-      host : '127.0.0.1',
-      user : 'root',
-      password : 'javacream',
-      database : 'javacream'
-    });
+    let connection = await mysql.createConnection(connectionConfig);
     await connection.query(
         `delete FROM BOOKS where isbn='${isbn}'`)
     await connection.end()
