@@ -1,0 +1,15 @@
+{
+  "name": "javacream_books_types",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "publishConfig": {
+    "registry": "http://h2908727.stratoserver.net:8081/repository/npm-hosted/"
+  }
+
+}

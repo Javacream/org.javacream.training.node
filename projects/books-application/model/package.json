@@ -1,0 +1,15 @@
+{
+  "name": "javacream_books_model",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "javacream_books_types": "^1.0.0",
+    "jest": "^27.3.1"
+  }
+}
