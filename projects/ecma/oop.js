@@ -6,10 +6,12 @@ module.exports = class Person {
         this.lastname = lastname
         this.firstname = firstname
         this.height = height
+        //Object.freeze(this)
+        //this.sayHello = this.sayHello.bind(this)
     }
 
     //These: Das folgende ist eine Methode der Klasse Person
-    sayHello(){
+    sayHello = () => {
         return  ` 'Hello, my name is ${this.lastname}` 
     }
 }
