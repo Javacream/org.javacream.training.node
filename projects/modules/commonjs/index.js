@@ -1,0 +1,1 @@
+module.exports.circleArea = function(r) {return 2 * Math.PI * r}

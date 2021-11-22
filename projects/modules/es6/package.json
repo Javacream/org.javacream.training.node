@@ -1,0 +1,15 @@
+{
+  "name": "simple_es6_module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "publishConfig": {
+    "registry": "http://h2908727.stratoserver.net:8081/repository/npm-hosted/"
+  }
+}

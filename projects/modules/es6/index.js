@@ -1,0 +1,1 @@
+export function circleArea(r) {return 2 * Math.PI * r}
