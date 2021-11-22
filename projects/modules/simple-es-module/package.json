@@ -1,5 +1,5 @@
 {
-  "name": "simple-app",
+  "name": "simple-es-module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,8 +9,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "simple-commonsjs-module": "^1.0.0",
-    "simple-es-module": "^1.0.0"
+  "publishConfig": {
+    "registry": "http://h2908727.stratoserver.net:8081/repository/npm-hosted/"
   }
 }
