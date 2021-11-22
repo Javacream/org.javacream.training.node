@@ -1,6 +1,6 @@
 'use strict'
 
-class Person {
+module.exports = class Person {
     constructor(id, lastname, firstname, height){
         this.id = id
         this.lastname = lastname
