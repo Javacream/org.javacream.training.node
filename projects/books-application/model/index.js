@@ -15,7 +15,7 @@ class BooksModel {
         return this.books[isbn]
     } 
     findAll= () => {
-        return Array.from(this.books.values)
+        return Array.from(this.books.values())
     }
     update= (book)=> {
         this.books.set(book.isbn, book)
