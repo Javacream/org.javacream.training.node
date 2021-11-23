@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
     "javacream_books_types": "^1.0.0",
     "jest": "^27.3.1"
   }
