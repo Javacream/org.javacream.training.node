@@ -43,6 +43,20 @@ async function findBookByIsbn(isbn){
     console.log(err)
   }  
 }
+async function findBookByTitle(title){
+  try{
+    let connection = await mysql.createConnection(connectionConfig);
+    let [result, fields] = await connection.query(
+        `SELECT * FROM BOOKS where title like '${title}%'`)
+    await connection.end()
+    return result
+  }
+  catch(err){
+    console.log(err)
+  }  
+}
+
+
 async function updateBookByIsbn(isbn, bookData){
   try{
     let connection = await mysql.createConnection(connectionConfig);
@@ -81,7 +95,7 @@ async function deleteBookByIsbn(isbn){
 }
 
 let db = {
-    deleteBookByIsbn, findAllBooks, findBookByIsbn, updateBookByIsbn, insertBookByTitle, welcomeMessage
+    findBookByTitle, deleteBookByIsbn, findAllBooks, findBookByIsbn, updateBookByIsbn, insertBookByTitle, welcomeMessage
 
 }
 export default db

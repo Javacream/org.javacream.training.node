@@ -8,6 +8,13 @@ let appRouter =  (app) => {
       let books = await db.findAllBooks()
       res.status(200).send(books);
     });
+
+    app.get("/service/books/search/title/:title", async (req, res) => {
+      let title = req.params.title
+      let books = await db.findBookByTitle(title)
+      res.status(200).send(books);
+    });
+
     app.route("/service/books/:isbn").get(async (req, res) => {
       let isbn = req.params.isbn
       let book = await db.findBookByIsbn(isbn)
