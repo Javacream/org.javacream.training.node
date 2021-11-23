@@ -1,3 +1,4 @@
+//let mysql = require('mysql2/promise');
 import mysql from 'mysql2/promise'
 let connectionConfig = {
   host : 'h2908727.stratoserver.net',
@@ -6,6 +7,7 @@ let connectionConfig = {
   password : 'training123!',
   database : 'training'
 }
+let counter = 1000;
 async function welcomeMessage(){
   try{
     let connection = await mysql.createConnection(connectionConfig);
@@ -18,9 +20,69 @@ async function welcomeMessage(){
     console.log(err)
   }  
 }
+async function findAllBooks(){
+  try{
+    let connection = await mysql.createConnection(connectionConfig);
+    let [result, fields] = await connection.query(
+        "SELECT * FROM BOOKS")
+    await connection.end()
+    return result
+  }
+  catch(err){
+    console.log(err)
+  }  
+}
+async function findBookByIsbn(isbn){
+  try{
+    let connection = await mysql.createConnection(connectionConfig);
+    let [result, fields] = await connection.query(
+        `SELECT * FROM BOOKS where isbn='${isbn}'`)
+    await connection.end()
+    return result[0]
+  }
+  catch(err){
+    console.log(err)
+  }  
+}
+async function updateBookByIsbn(isbn, bookData){
+  try{
+    let connection = await mysql.createConnection(connectionConfig);
+    await connection.query(
+      `update BOOKS set price=${bookData.price} where isbn='${isbn}'`)
+  await connection.end()
+  }
+  catch(err){
+    console.log(err)
+  }  
+}
+async function insertBookByIsbn(title){
+  try{
+    let connection = await mysql.createConnection(connectionConfig);
+    let isbn = "ISBN" + counter++
+    await connection.query(
+      `insert into BOOKS (isbn, title) values('${isbn}', '${title}')`)
+  await connection.end()
+  }
+  catch(err){
+    console.log(err)
+  }  
+}
+
+
+async function deleteBookByIsbn(isbn){
+  try{
+    let connection = await mysql.createConnection(connectionConfig);
+    await connection.query(
+        `delete FROM BOOKS where isbn='${isbn}'`)
+    await connection.end()
+  }
+  catch(err){
+    console.log(err)
+  }  
+}
 
 let db = {
-    welcomeMessage
+    deleteBookByIsbn, findAllBooks, findBookByIsbn, updateBookByIsbn, insertBookByIsbn, welcomeMessage
 
 }
 export default db
