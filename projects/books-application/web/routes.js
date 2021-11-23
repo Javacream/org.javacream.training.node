@@ -1,4 +1,3 @@
-//let db = require ("./database")
 import db from './database.js'
 let appRouter =  (app) => {
     app.get("/service/welcome", async (req, res) => {
@@ -24,7 +23,7 @@ let appRouter =  (app) => {
       res.status(200).send();
     }).post(async (req, res) => {
       let title = req.params.isbn
-      await db.insertBookByIsbn(title)
+      await db.insertBookByTitle(title)
       res.status(200).send();
     });
   }
