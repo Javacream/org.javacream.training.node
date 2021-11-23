@@ -7,7 +7,6 @@ let connectionConfig = {
   password : 'training123!',
   database : 'training'
 }
-let counter = 2000;
 async function welcomeMessage(){
   try{
     let connection = await mysql.createConnection(connectionConfig);
@@ -58,7 +57,7 @@ async function updateBookByIsbn(isbn, bookData){
 async function insertBookByTitle(title){
   try{
     let connection = await mysql.createConnection(connectionConfig);
-    let isbn = "ISBN" + counter++
+    let isbn = "ISBN" + Math.floor(Math.random() * 1000000);
     await connection.query(
       `insert into BOOKS (isbn, title) values('${isbn}', '${title}')`)
   await connection.end()
