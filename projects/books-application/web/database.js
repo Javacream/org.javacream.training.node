@@ -7,7 +7,7 @@ let connectionConfig = {
   password : 'training123!',
   database : 'training'
 }
-let counter = 1000;
+let counter = 2000;
 async function welcomeMessage(){
   try{
     let connection = await mysql.createConnection(connectionConfig);
@@ -55,7 +55,7 @@ async function updateBookByIsbn(isbn, bookData){
     console.log(err)
   }  
 }
-async function insertBookByIsbn(title){
+async function insertBookByTitle(title){
   try{
     let connection = await mysql.createConnection(connectionConfig);
     let isbn = "ISBN" + counter++
@@ -82,7 +82,7 @@ async function deleteBookByIsbn(isbn){
 }
 
 let db = {
-    deleteBookByIsbn, findAllBooks, findBookByIsbn, updateBookByIsbn, insertBookByIsbn, welcomeMessage
+    deleteBookByIsbn, findAllBooks, findBookByIsbn, updateBookByIsbn, insertBookByTitle, welcomeMessage
 
 }
 export default db
