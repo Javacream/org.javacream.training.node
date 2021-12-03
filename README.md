@@ -1,6 +1,6 @@
 # org.javacream.training.node
 
-# Durchführung des Seminars vom 22.-23.11.2021
+## Durchführung des Seminars vom 22.-23.11.2021
 
 * Referent: Rainer Sawitzki, eMail: training@rainer-sawitzki.de
 
